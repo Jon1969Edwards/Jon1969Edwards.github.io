@@ -10,16 +10,19 @@ export default function Hero() {
       <div className={styles.bg} aria-hidden />
       <div className={`container ${styles.grid}`}>
         <div className={styles.content}>
-          <p className={styles.eyebrow}>
-            {config.location} · {config.role}
-          </p>
-          <h1 id="hero-heading" className={styles.headline}>
-            Game &amp; web developer
-            <span className={styles.headlineAccent}>who loves to tinker</span>
-          </h1>
-          <p className={styles.tagline}>{config.tagline}</p>
-          <p className={styles.dual}>{config.heroSubheadClient}</p>
-          <p className={styles.dual}>{config.heroSubheadEmployer}</p>
+          <div className={styles.intro}>
+            <p className={styles.eyebrow}>
+              {config.location} · {config.role}
+            </p>
+            <h1 id="hero-heading" className={styles.headline}>
+              Game &amp; web developer
+              <span className={styles.headlineAccent}>who loves to tinker</span>
+            </h1>
+            <p className={styles.tagline}>{config.tagline}</p>
+          </div>
+
+          {/* Keeps “Programmer Found!” in the background image visible */}
+          <div className={styles.bubbleLane} aria-hidden />
 
           <ul className={styles.skills} aria-label="Skills">
             {config.skills.map((skill) => (
@@ -36,6 +39,11 @@ export default function Hero() {
             <a href="#contact" className="btn btn-secondary">
               Get in touch
             </a>
+          </div>
+
+          <div className={styles.pitch}>
+            <p>{config.heroSubheadClient}</p>
+            <p>{config.heroSubheadEmployer}</p>
           </div>
         </div>
 
