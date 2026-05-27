@@ -9,19 +9,45 @@ function redirectUri() {
   return `${siteUrl()}/callback`;
 }
 
-function authRedirect(params) {
+function buildGitHubAuthorizeUrl(params) {
   const clientId = process.env.GITHUB_CLIENT_ID;
-  if (!clientId) {
-    return { statusCode: 500, body: "GITHUB_CLIENT_ID is not set in Netlify env vars." };
-  }
+  if (!clientId) return null;
 
   const url = new URL("https://github.com/login/oauth/authorize");
   url.searchParams.set("client_id", clientId);
   url.searchParams.set("redirect_uri", redirectUri());
   url.searchParams.set("scope", SCOPES);
   if (params.state) url.searchParams.set("state", params.state);
+  return url.toString();
+}
 
-  return { statusCode: 302, headers: { Location: url.toString() } };
+/** Decap expects `authorizing:github` from base_url before the OAuth redirect. */
+function authRedirect(params) {
+  const githubUrl = buildGitHubAuthorizeUrl(params);
+  if (!githubUrl) {
+    return { statusCode: 500, body: "GITHUB_CLIENT_ID is not set in Netlify env vars." };
+  }
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="utf-8"><title>Authorizing…</title></head>
+  <body>
+    <p>Redirecting to GitHub…</p>
+    <script>
+      (function () {
+        var githubUrl = ${JSON.stringify(githubUrl)};
+        try {
+          if (window.opener) {
+            window.opener.postMessage("authorizing:github", window.location.origin);
+          }
+        } catch (e) {}
+        window.location.replace(githubUrl);
+      })();
+    </script>
+  </body>
+</html>`;
+
+  return htmlResponse(html);
 }
 
 async function authCallback(params) {
@@ -66,10 +92,11 @@ async function authCallback(params) {
     <p>Authorized. Closing…</p>
     <script>
       (function () {
+        var msg = ${JSON.stringify(payload)};
         if (window.opener) {
-          window.opener.postMessage(${JSON.stringify(payload)}, "*");
+          window.opener.postMessage(msg, "*");
         }
-        setTimeout(function () { window.close(); }, 500);
+        setTimeout(function () { window.close(); }, 1500);
       })();
     </script>
   </body>
