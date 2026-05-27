@@ -36,12 +36,27 @@ function authRedirect(params) {
     <script>
       (function () {
         var githubUrl = ${JSON.stringify(githubUrl)};
-        try {
-          if (window.opener) {
-            window.opener.postMessage("authorizing:github", window.location.origin);
+        var started = false;
+        function goToGitHub() {
+          if (started) return;
+          started = true;
+          window.location.replace(githubUrl);
+        }
+        if (!window.opener) {
+          goToGitHub();
+          return;
+        }
+        // Decap echoes "authorizing:github" back before we may redirect to GitHub.
+        window.addEventListener("message", function onEcho(e) {
+          if (e.data === "authorizing:github") {
+            window.removeEventListener("message", onEcho);
+            goToGitHub();
           }
+        });
+        try {
+          window.opener.postMessage("authorizing:github", "*");
         } catch (e) {}
-        window.location.replace(githubUrl);
+        setTimeout(goToGitHub, 8000);
       })();
     </script>
   </body>
@@ -93,10 +108,21 @@ async function authCallback(params) {
     <script>
       (function () {
         var msg = ${JSON.stringify(payload)};
-        if (window.opener) {
-          window.opener.postMessage(msg, "*");
+        var adminOrigin = "https://jon1969edwards.github.io";
+        function deliver() {
+          if (!window.opener || window.opener.closed) return;
+          try { window.opener.postMessage(msg, "*"); } catch (e) {}
+          try { window.opener.postMessage(msg, adminOrigin); } catch (e) {}
         }
-        setTimeout(function () { window.close(); }, 1500);
+        deliver();
+        var n = 0;
+        var timer = setInterval(function () {
+          deliver();
+          if (++n > 12) {
+            clearInterval(timer);
+            window.close();
+          }
+        }, 250);
       })();
     </script>
   </body>
@@ -108,7 +134,10 @@ async function authCallback(params) {
 function htmlResponse(body) {
   return {
     statusCode: 200,
-    headers: { "Content-Type": "text/html; charset=utf-8" },
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      "Cross-Origin-Opener-Policy": "unsafe-none",
+    },
     body,
   };
 }

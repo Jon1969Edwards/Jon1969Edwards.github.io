@@ -62,8 +62,9 @@ Your site stays on **GitHub Pages**. Netlify (`jon-portfolio-cms`) runs a small 
 
 ### Using the CMS
 
-- Visit `https://jon1969edwards.github.io/admin/`
-- Log in with GitHub
+- Visit **`https://jon-portfolio-cms.netlify.app/admin/`** (recommended for login), or `https://jon1969edwards.github.io/admin/` after auth works
+- The `#/` in the URL is normal (Decap’s router)
+- Log in with GitHub (allow popups)
 - Edit JSON content + upload images
 - Changes are committed to `master` (and trigger the Pages workflow)
 

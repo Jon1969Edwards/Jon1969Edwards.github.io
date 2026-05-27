@@ -14,3 +14,13 @@
   from = "/callback"
   to = "/.netlify/functions/auth"
   status = 200
+
+[[headers]]
+  for = "/auth"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "unsafe-none"
+
+[[headers]]
+  for = "/callback"
+  [headers.values]
+    Cross-Origin-Opener-Policy = "unsafe-none"
