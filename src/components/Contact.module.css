@@ -1,0 +1,98 @@
+.contact {
+  padding-bottom: 6rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.form {
+  padding: 2rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: var(--color-text-muted);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form .btn {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.form .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.feedbackSuccess {
+  margin: 1rem 0 0;
+  color: var(--color-accent);
+}
+
+.feedbackError {
+  margin: 1rem 0 0;
+  color: #f07178;
+}
+
+.info {
+  padding: 1.5rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.info p {
+  margin: 0 0 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.name {
+  font-size: 1.15rem !important;
+  font-weight: 600;
+  color: var(--color-text) !important;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

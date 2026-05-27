@@ -1,0 +1,10 @@
+.page {
+  padding-top: calc(var(--header-height) + 2rem);
+  min-height: 50vh;
+  text-align: center;
+}
+
+.text {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}

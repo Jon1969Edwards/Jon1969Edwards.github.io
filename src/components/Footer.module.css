@@ -1,0 +1,37 @@
+.footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.copy {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social a {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.social a:hover {
+  color: var(--color-accent);
+}

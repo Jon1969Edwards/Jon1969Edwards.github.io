@@ -1,0 +1,38 @@
+[
+  {
+    "period": "1977–1988",
+    "title": "My humble beginnings",
+    "body": "One of my earliest memories is my father playing Atari 2600 with me — Pac-Man, Space Invaders, and even E.T.",
+    "image": "/img/about/atari.jpg"
+  },
+  {
+    "period": "1988–1999",
+    "title": "A punker is born",
+    "body": "Skateboarding, Thrasher Magazine, and punk rock. The Descendents showed me you didn't have to live in a gutter to be punk.",
+    "image": "/img/about/descendents.jpg"
+  },
+  {
+    "period": "1999–2010",
+    "title": "Get in the van",
+    "body": "Toured the U.S. in a punk band, then moved to Frankfurt in 2010 and started bartending.",
+    "image": "/img/about/tour_van.jpg"
+  },
+  {
+    "period": "2015–now",
+    "title": "Heja Sverige",
+    "body": "Moved to Sweden with my partner in 2015 and have been here since.",
+    "image": "/img/about/meatballs.jpg"
+  },
+  {
+    "period": "2018",
+    "title": "Hello, world!",
+    "body": "Enrolled in Craft Academy coding bootcamp — frustrating, rewarding, and the start of professional development.",
+    "image": "/img/about/coding.png"
+  },
+  {
+    "period": "2021–now",
+    "title": "Game development",
+    "body": "Fell into game dev while helping on a website — learned Unreal Engine, MetaHuman, and interactive experiences including in-game live TV experiments.",
+    "image": "/img/about/unreal-engine.256x256.png"
+  }
+]
