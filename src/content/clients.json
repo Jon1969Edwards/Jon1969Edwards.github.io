@@ -1,0 +1,18 @@
+[
+  {
+    "id": "sarais-schoolhouse",
+    "title": "Sarai's Schoolhouse",
+    "description": "Sarai is a classically trained, dually credentialed teacher. She guides homeschooling families in designing programs that match their educational philosophy.",
+    "image": "/img/clients/SaraisSchoolHouse.png",
+    "url": "https://www.saraisschoolhouse.com/",
+    "tags": ["Web", "Client site"]
+  },
+  {
+    "id": "ingame-tv",
+    "title": "In-game TV with live TV",
+    "description": "Unreal Engine experiment: a TV in the game world that streams real live television.",
+    "embedUrl": "https://drive.google.com/file/d/1oqx4ZEncstjJvtv7c0n8rxFjImq6btfs/preview",
+    "status": "Work in progress",
+    "tags": ["Unreal Engine", "Game dev"]
+  }
+]

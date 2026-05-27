@@ -1,0 +1,75 @@
+[
+  {
+    "id": "chatstream-json",
+    "title": "Chatstream Forms JSON Creator",
+    "description": "React tool for building form JSON configurations.",
+    "image": "/img/projects/JsonForm.png",
+    "url": "https://poetic-dragon-a4589c.netlify.app/",
+    "date": "March 2021",
+    "tags": ["React", "Yarn"],
+    "tier": "featured"
+  },
+  {
+    "id": "hello-world",
+    "title": "Hello World!",
+    "description": "My first site — where I learned HTML and had fun with links.",
+    "image": "/img/projects/felix_hello_world.png",
+    "url": "https://jon1969edwards.github.io/Jon1969edwards/",
+    "date": "October 2018",
+    "tags": ["HTML"],
+    "tier": "archive"
+  },
+  {
+    "id": "bmi-calculator",
+    "title": "BMI Calculator",
+    "description": "JavaScript BMI calculator with Cucumber tests.",
+    "image": "/img/projects/BMI.jpg",
+    "url": "https://jon1969edwards.github.io/BMI_Challenge/",
+    "date": "October 2018",
+    "tags": ["JavaScript"],
+    "tier": "archive"
+  },
+  {
+    "id": "address-book",
+    "title": "Address Book",
+    "description": "JavaScript address book with local storage and pair programming.",
+    "image": "/img/projects/addressBookBlue.jpg",
+    "url": "https://gergkllai1.github.io/Adress_book/",
+    "date": "November 2018",
+    "tags": ["JavaScript"],
+    "tier": "archive"
+  },
+  {
+    "id": "moes-tavern",
+    "title": "Moe's Tavern",
+    "description": "Simpsons-themed food ordering app in Ruby on Rails.",
+    "image": "/img/projects/moesTavern_tn.jpg",
+    "url": "https://moestavern.herokuapp.com/",
+    "date": "November 2018",
+    "tags": ["Ruby on Rails"],
+    "tier": "archive",
+    "demoNote": "Heroku demo may be offline"
+  },
+  {
+    "id": "sunrise-press",
+    "title": "The Sunrise Press",
+    "description": "News site with APIs, auth, subscriptions, and Stripe.",
+    "image": "/img/projects/sunrisePress_tn.jpg",
+    "url": "https://the-sunrise-press.herokuapp.com/",
+    "date": "January 2019",
+    "tags": ["Ruby on Rails", "API"],
+    "tier": "archive",
+    "demoNote": "Heroku demo may be offline"
+  },
+  {
+    "id": "cardnd",
+    "title": "carDND",
+    "description": "Car-sharing prototype with Rails, RSpec, Cucumber, and Tailwind.",
+    "image": "/img/projects/carDnd_tn.jpg",
+    "url": "https://cardreamndrive.herokuapp.com/",
+    "date": "December 2018",
+    "tags": ["Ruby on Rails"],
+    "tier": "archive",
+    "demoNote": "Heroku demo may be offline"
+  }
+]

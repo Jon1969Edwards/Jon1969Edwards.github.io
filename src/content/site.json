@@ -1,0 +1,85 @@
+{
+  "name": "Jonathan C. Edwards",
+  "title": "Game & Web Developer",
+  "location": "Stockholm, Sweden",
+  "email": "jon@vwr.dev",
+  "canonicalUrl": "https://jon1969edwards.github.io",
+  "tagline": "Building games, web experiences, and tools from Stockholm.",
+  "heroHeadline": "Game & web developer who loves to tinker",
+  "heroSubheadClient": "Freelance: client sites, integrations, and interactive tools.",
+  "heroSubheadEmployer": "Full-time ready: React, Node, Unreal Engine, and problem-solving under pressure.",
+  "role": "Game & Full-Stack Developer",
+  "description": "Jonathan Edwards — game and web developer in Stockholm. Unreal Engine, React, Node.js, and client work.",
+  "ogImage": "/img/profile2.jpg",
+  "formspreeEndpoint": "https://formspree.io/f/xyyowedo",
+  "quote": "\"Let's see what this'll do!\" — Me",
+  "social": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/Jon1969Edwards",
+      "icon": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/jonathan-edwards-671094110/",
+      "icon": "linkedin"
+    },
+    {
+      "label": "Twitter",
+      "url": "https://twitter.com/BovverSkin",
+      "icon": "twitter"
+    },
+    {
+      "label": "Spotify",
+      "url": "https://open.spotify.com/playlist/2dIDXdXK08zWyNutNzfnIe",
+      "icon": "spotify"
+    },
+    {
+      "label": "Discogs",
+      "url": "https://www.discogs.com/user/jon1969edwards",
+      "icon": "discogs"
+    },
+    {
+      "label": "Steam",
+      "url": "https://steamcommunity.com/id/jon1969edwards",
+      "icon": "steam"
+    }
+  ],
+  "skills": [
+    "Unreal Engine",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "React Native",
+    "AI tooling",
+    "HTML/CSS",
+    "IoT"
+  ],
+  "aboutParagraphs": [
+    "I'm a passionate and curious professional with roots in both technology and creativity. Growing up in Northern California near Sacramento, my childhood was shaped by a love for music and culture. At 11, I discovered The Clash — and that curiosity to explore ideas, creativity, and culture has followed me ever since.",
+    "From watching my father work on his Commodore 64, I became fascinated with technology. Oregon Trail was the start; manipulating technology to build something new became the obsession. I started coding later in life, but the enthusiasm for problem-solving has only grown.",
+    "Today I merge creativity and engineering: web development, game development with Unreal Engine, AI-assisted workflows, and hands-on IoT projects. Based in Sweden since 2015, I work with clients remotely and welcome conversations about freelance projects and full-time roles."
+  ],
+  "beyondCode": [
+    {
+      "title": "Ethical hacking",
+      "description": "OSINT to password cracking — Metasploit, Nmap, Hashcat — always learning."
+    },
+    {
+      "title": "Raspberry Pi",
+      "description": "Tinkering and experimenting with whatever the board can do."
+    },
+    {
+      "title": "Record collecting",
+      "description": "Vinyl hunter with a Discogs profile and a Spotify playlist that tells a story.",
+      "link": "https://www.discogs.com/user/jon1969edwards",
+      "linkLabel": "Discogs profile"
+    },
+    {
+      "title": "Gaming",
+      "description": "From Atari 2600 to today — games have always been part of my world.",
+      "link": "https://steamcommunity.com/id/jon1969edwards",
+      "linkLabel": "Steam profile"
+    }
+  ]
+}

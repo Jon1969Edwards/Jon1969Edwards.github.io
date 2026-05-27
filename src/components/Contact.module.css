@@ -1,0 +1,138 @@
+.contact {
+  position: relative;
+  padding-bottom: 6rem;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background: url("/img/contact-bg.jpg") center / cover no-repeat;
+  z-index: 0;
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 16, 21, 0.88) 0%,
+    rgba(12, 16, 21, 0.94) 100%
+  );
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.contact .section-title,
+.contact .section-subtitle {
+  color: var(--color-text);
+}
+
+.contact .section-subtitle {
+  color: rgba(232, 237, 242, 0.8);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.form {
+  padding: 2rem;
+  background: rgba(26, 36, 48, 0.85);
+  border: 1px solid rgba(103, 247, 193, 0.25);
+  border-radius: var(--radius);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: var(--color-text-muted);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  background: rgba(8, 12, 18, 0.6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form .btn {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.form .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.feedbackSuccess {
+  margin: 1rem 0 0;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.feedbackError {
+  margin: 1rem 0 0;
+  color: #f07178;
+}
+
+.info {
+  padding: 1.5rem;
+  background: rgba(103, 247, 193, 0.08);
+  border: 1px solid rgba(103, 247, 193, 0.3);
+  border-radius: var(--radius);
+}
+
+.info p {
+  margin: 0 0 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.name {
+  font-size: 1.2rem !important;
+  font-weight: 700;
+  color: var(--color-accent) !important;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
