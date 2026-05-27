@@ -14,7 +14,11 @@ export default function Work() {
   const [archiveOpen, setArchiveOpen] = useState(false);
 
   return (
-    <section id="work" className="section" aria-labelledby="work-heading">
+    <section
+      id="work"
+      className={`section section-alt ${styles.work}`}
+      aria-labelledby="work-heading"
+    >
       <div className="container">
         <h2 id="work-heading" className="section-title">
           Work
@@ -77,7 +81,7 @@ export default function Work() {
                     href={client.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-secondary"
+                    className="btn btn-primary"
                   >
                     Visit site
                   </a>
@@ -92,7 +96,7 @@ export default function Work() {
             <h3 className={styles.groupTitle}>Featured projects</h3>
             <div className={styles.grid}>
               {featured.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+                <ProjectCard key={project.id} project={project} variant="light" />
               ))}
             </div>
           </>
@@ -106,12 +110,13 @@ export default function Work() {
               aria-expanded={archiveOpen}
               onClick={() => setArchiveOpen((v) => !v)}
             >
-              {archiveOpen ? "Hide" : "Show"} bootcamp archive ({archive.length} projects)
+              {archiveOpen ? "Hide" : "Show"} bootcamp archive ({archive.length}{" "}
+              projects)
             </button>
             {archiveOpen && (
               <div className={styles.grid}>
                 {archive.map((project) => (
-                  <ProjectCard key={project.id} project={project} />
+                  <ProjectCard key={project.id} project={project} variant="light" />
                 ))}
               </div>
             )}

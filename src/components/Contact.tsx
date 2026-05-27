@@ -36,13 +36,19 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className={`section ${styles.contact}`} aria-labelledby="contact-heading">
-      <div className="container">
+    <section
+      id="contact"
+      className={`section ${styles.contact}`}
+      aria-labelledby="contact-heading"
+    >
+      <div className={styles.bg} aria-hidden />
+      <div className={`container ${styles.inner}`}>
         <h2 id="contact-heading" className="section-title">
           Contact
         </h2>
         <p className="section-subtitle">
-          Freelance projects, contract work, or full-time roles — send a message and I&apos;ll get back to you.
+          Freelance projects, contract work, or full-time roles — send a message and
+          I&apos;ll get back to you.
         </p>
 
         <div className={styles.grid}>

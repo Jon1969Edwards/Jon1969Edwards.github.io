@@ -14,7 +14,8 @@ export default function About() {
           About
         </h2>
         <p className="section-subtitle">
-          Developer, tinkerer, and lifelong learner — open to freelance and full-time opportunities.
+          Developer, tinkerer, and lifelong learner — open to freelance and full-time
+          opportunities.
         </p>
 
         <div className={styles.prose}>

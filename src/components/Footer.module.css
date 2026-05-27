@@ -1,7 +1,7 @@
 .footer {
   padding: 2.5rem 0;
-  border-top: 1px solid var(--color-border);
-  background: var(--color-bg-elevated);
+  border-top: 3px solid var(--color-accent);
+  background: #080c10;
 }
 
 .inner {
@@ -28,7 +28,11 @@
 }
 
 .social a {
-  font-size: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
