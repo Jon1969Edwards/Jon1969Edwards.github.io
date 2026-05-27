@@ -9,25 +9,45 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function Contact() {
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("submitting");
+    setErrorMessage("");
 
     const form = event.currentTarget;
     const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
 
     try {
       const response = await fetch(config.formspreeEndpoint, {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        body: JSON.stringify(payload),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
       });
 
       if (response.ok) {
         form.reset();
         setStatus("success");
       } else {
+        // Formspree typically returns JSON with an error message.
+        try {
+          const json = (await response.json()) as {
+            error?: string;
+            errors?: Array<{ message?: string }>;
+          };
+          const msg =
+            json.error ||
+            json.errors?.map((e) => e.message).filter(Boolean).join(" ") ||
+            "";
+          setErrorMessage(msg);
+        } catch {
+          // ignore parse errors; show generic message below
+        }
         setStatus("error");
       }
     } catch {
@@ -101,7 +121,9 @@ export default function Contact() {
             )}
             {status === "error" && (
               <p className={styles.feedbackError} role="alert">
-                Something went wrong. Try emailing me directly.
+                {errorMessage
+                  ? `Something went wrong: ${errorMessage}`
+                  : "Something went wrong. Try emailing me directly."}
               </p>
             )}
           </form>
