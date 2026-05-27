@@ -1,0 +1,16 @@
+{
+  "name": "Jonathan Edwards Tech",
+  "short_name": "J Edwards",
+  "description": "Game and web developer portfolio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1419",
+  "theme_color": "#67f7c1",
+  "icons": [
+    {
+      "src": "/img/developer.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
