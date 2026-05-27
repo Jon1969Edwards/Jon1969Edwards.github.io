@@ -5,24 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>Content Manager</title>
-    <meta
-      http-equiv="refresh"
-      content="0;url=https://jon-portfolio-cms.netlify.app/admin/"
-    />
     <script>
       (function () {
-        var target =
-          "https://jon-portfolio-cms.netlify.app/admin/" +
-          (location.search || "") +
-          (location.hash || "");
-        location.replace(target);
+        var host = window.location.hostname;
+        if (host === "jon1969edwards.github.io") {
+          var target =
+            "https://jon-portfolio-cms.netlify.app/admin/" +
+            (location.search || "") +
+            (location.hash || "");
+          location.replace(target);
+        }
       })();
     </script>
   </head>
   <body>
-    <p>
-      Redirecting to the content manager…
-      <a href="https://jon-portfolio-cms.netlify.app/admin/">Continue</a>
-    </p>
+    <!-- Decap CMS — loads on Netlify; GitHub Pages redirects above -->
+    <script src="https://unpkg.com/decap-cms@^3.6.0/dist/decap-cms.js"></script>
   </body>
 </html>
