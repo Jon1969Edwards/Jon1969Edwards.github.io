@@ -9,7 +9,12 @@ function removeCrossorigin(): Plugin {
     transformIndexHtml: {
       order: "post",
       handler(html) {
-        return html.replace(/\s+crossorigin/g, "");
+        return html
+          .replace(/(<script\b[^>]*)\s+crossorigin/gi, "$1")
+          .replace(
+            /(<link\b[^>]*rel=["']stylesheet["'][^>]*)\s+crossorigin/gi,
+            "$1",
+          );
       },
     },
   };
