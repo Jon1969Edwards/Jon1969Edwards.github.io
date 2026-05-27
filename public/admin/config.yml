@@ -7,7 +7,7 @@ backend:
   auth_endpoint: auth
   # REQUIRED: your Netlify site subdomain, e.g. jon-portfolio-cms.netlify.app
   # (Site overview in Netlify — not the github.io URL)
-  site_domain: YOUR-NETLIFY-SITE.netlify.app
+  site_domain: jon-portfolio-cms.netlify.app
 
 media_folder: "public/img"
 public_folder: "/img"
