@@ -61,12 +61,29 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
-.embed {
-  position: absolute;
-  inset: 0;
-  width: 100%;
+.embedFallback {
   height: 100%;
-  border: 0;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(103, 247, 193, 0.18), transparent 55%),
+    linear-gradient(135deg, rgba(12, 16, 21, 0.9), rgba(12, 16, 21, 0.75));
+  color: #fff;
+}
+
+.embedTitle {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.embedNote {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .clientTitle {

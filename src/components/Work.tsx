@@ -54,13 +54,20 @@ export default function Work() {
               )}
               {client.embedUrl && (
                 <div className={styles.embedWrap}>
-                  <iframe
-                    src={client.embedUrl}
-                    title={client.title}
-                    loading="lazy"
-                    allowFullScreen
-                    className={styles.embed}
-                  />
+                  <div className={styles.embedFallback}>
+                    <p className={styles.embedTitle}>{client.title}</p>
+                    <p className={styles.embedNote}>
+                      Video embeds from Google Drive are blocked on GitHub Pages.
+                    </p>
+                    <a
+                      className="btn btn-primary"
+                      href={client.embedUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Watch demo
+                    </a>
+                  </div>
                 </div>
               )}
               <div className={styles.clientBody}>
