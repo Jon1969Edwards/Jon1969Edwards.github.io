@@ -24,7 +24,7 @@ Production output is in `dist/`. The build copies `index.html` to `404.html` so 
 
 ## Deploy
 
-Pushes to `main`, `master`, or `develop` trigger [.github/workflows/deploy.yml](.github/workflows/deploy.yml).
+Pushes to `main`, `master`, or `develop` run [.github/workflows/deploy.yml](.github/workflows/deploy.yml). Only **`master`** / **`main`** deploy to GitHub Pages (`develop` runs build only).
 
 In the GitHub repo, enable **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
