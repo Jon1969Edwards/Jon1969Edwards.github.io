@@ -42,30 +42,23 @@ In the GitHub repo, enable **Settings → Pages → Build and deployment → Sou
 
 This repo includes a browser-based editor at `/admin` powered by [Decap CMS](https://decapcms.org/). It commits changes directly to GitHub (no database, no custom backend for content).
 
-### One-time setup (Netlify + GitHub OAuth)
+### One-time setup (Netlify OAuth proxy + GitHub)
 
-Your site stays on **GitHub Pages**. Netlify is only used for the GitHub login handshake (free).
+Your site stays on **GitHub Pages**. Netlify (`jon-portfolio-cms`) runs a small OAuth function only.
 
-1. **Add this repo as a Netlify site**
-   - [Netlify](https://app.netlify.com) → Add new site → Import from Git → this repo → branch `master`
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-   - Deploy once (you can keep using GitHub Pages as the public URL)
+1. **Netlify site** — import this repo, branch `master`, build `npm run build`, publish `dist` (already done if you use `jon-portfolio-cms`).
 
-2. **Note your Netlify site URL** from Site overview, e.g. `https://something-random.netlify.app`
-
-3. **Create a GitHub OAuth App** ([Developer settings → OAuth Apps](https://github.com/settings/developers))
+2. **GitHub OAuth App** ([Developer settings → OAuth Apps](https://github.com/settings/developers))
    - **Homepage URL**: `https://jon1969edwards.github.io/`
-   - **Authorization callback URL**: `https://api.netlify.com/auth/done` (exactly this)
-   - Copy the **Client ID** and generate a **Client Secret**
+   - **Authorization callback URL**: `https://jon-portfolio-cms.netlify.app/callback`
+   - Copy **Client ID** and generate **Client Secret**
 
-4. **Connect OAuth in Netlify**
-   - Site configuration → **Access & security** → **OAuth**
-   - Install provider → **GitHub** → paste Client ID and Client Secret → Save
+3. **Netlify environment variables** (Site configuration → Environment variables)
+   - `GITHUB_CLIENT_ID` = your Client ID
+   - `GITHUB_CLIENT_SECRET` = your Client Secret  
+   Redeploy after saving (Deploys → Trigger deploy).
 
-5. **Update `public/admin/config.yml`**
-   - Set `site_domain` to your Netlify subdomain only, e.g. `something-random.netlify.app` (no `https://`)
-   - Commit and push to `master` (or tell your agent the URL to update it for you)
+4. You do **not** need Netlify “OAuth providers” under Access & security for this setup — the function in `netlify/functions/auth.cjs` handles login.
 
 ### Using the CMS
 

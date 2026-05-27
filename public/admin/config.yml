@@ -2,12 +2,9 @@ backend:
   name: github
   repo: Jon1969Edwards/Jon1969Edwards.github.io
   branch: master
-  # Netlify OAuth (repo must be linked as a Netlify site — see README)
-  base_url: https://api.netlify.com
+  # OAuth proxy on Netlify (see README — env vars + GitHub callback required)
+  base_url: https://jon-portfolio-cms.netlify.app
   auth_endpoint: auth
-  # REQUIRED: your Netlify site subdomain, e.g. jon-portfolio-cms.netlify.app
-  # (Site overview in Netlify — not the github.io URL)
-  site_domain: jon-portfolio-cms.netlify.app
 
 media_folder: "public/img"
 public_folder: "/img"
