@@ -1,0 +1,125 @@
+backend:
+  name: github
+  repo: Jon1969Edwards/Jon1969Edwards.github.io
+  branch: master
+
+# One-time setup required:
+# - Deploy an OAuth provider (e.g. netlify-cms-oauth-provider) and set these URLs.
+# - See README for step-by-step instructions.
+base_url: https://YOUR-OAUTH-PROVIDER.example.com
+auth_endpoint: auth
+
+media_folder: "public/img"
+public_folder: "/img"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "content"
+    label: "Site content (JSON)"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: "Site config"
+        name: "site"
+        file: "src/content/site.json"
+        format: "json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Role", name: "role", widget: "string", required: false }
+          - { label: "Location", name: "location", widget: "string", required: false }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Canonical URL", name: "canonicalUrl", widget: "string" }
+          - { label: "Description (SEO)", name: "description", widget: "text" }
+          - { label: "OpenGraph image path", name: "ogImage", widget: "string" }
+          - { label: "Formspree endpoint", name: "formspreeEndpoint", widget: "string", required: false }
+          - { label: "Tagline", name: "tagline", widget: "string", required: false }
+          - { label: "Hero headline", name: "heroHeadline", widget: "string", required: false }
+          - { label: "Hero subhead (client)", name: "heroSubheadClient", widget: "text", required: false }
+          - { label: "Hero subhead (employer)", name: "heroSubheadEmployer", widget: "text", required: false }
+          - { label: "Quote", name: "quote", widget: "string", required: false }
+          - label: "Social links"
+            name: "social"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Icon key", name: "icon", widget: "string", required: false }
+          - label: "Skills"
+            name: "skills"
+            widget: "list"
+            field: { label: "Skill", name: "skill", widget: "string" }
+          - label: "About paragraphs"
+            name: "aboutParagraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Beyond code"
+            name: "beyondCode"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Link URL", name: "link", widget: "string", required: false }
+              - { label: "Link label", name: "linkLabel", widget: "string", required: false }
+
+      - label: "Clients"
+        name: "clients"
+        file: "src/content/clients.json"
+        format: "json"
+        fields:
+          - label: "Client projects"
+            name: "clients"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Status", name: "status", widget: "string", required: false }
+              - { label: "Role label", name: "role", widget: "string", required: false }
+              - { label: "Link label", name: "linkLabel", widget: "string", required: false }
+              - { label: "Link URL", name: "linkUrl", widget: "string", required: false }
+              - { label: "Image path", name: "image", widget: "string", required: false }
+              - { label: "Demo URL", name: "demoUrl", widget: "string", required: false }
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                required: false
+                field: { label: "Tag", name: "tag", widget: "string" }
+
+      - label: "Projects"
+        name: "projects"
+        file: "src/content/projects.json"
+        format: "json"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Image path", name: "image", widget: "string", required: false }
+              - { label: "Image alt", name: "imageAlt", widget: "string", required: false }
+              - { label: "Date label", name: "dateLabel", widget: "string", required: false }
+              - { label: "Featured", name: "featured", widget: "boolean", required: false, default: false }
+              - { label: "Archive", name: "archive", widget: "boolean", required: false, default: false }
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                required: false
+                field: { label: "Tag", name: "tag", widget: "string" }
+
+      - label: "Timeline"
+        name: "timeline"
+        file: "src/content/timeline.json"
+        format: "json"
+        fields:
+          - label: "Timeline entries"
+            name: "timeline"
+            widget: "list"
+            fields:
+              - { label: "Period", name: "period", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image path", name: "image", widget: "string", required: false }

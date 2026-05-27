@@ -38,6 +38,29 @@ In the GitHub repo, enable **Settings → Pages → Build and deployment → Sou
 | [src/content/timeline.json](src/content/timeline.json) | About timeline |
 | [public/img/](public/img/) | Images |
 
+## Git-based CMS (Decap)
+
+This repo includes a browser-based editor at `/admin` powered by [Decap CMS](https://decapcms.org/). It commits changes directly to GitHub (no database, no custom backend for content).
+
+### One-time setup (GitHub auth)
+
+Decap’s GitHub backend requires an OAuth “handshake” service. You can run it for free on a tiny host (Netlify/Vercel/Cloudflare) without moving your site off GitHub Pages.
+
+- Create a GitHub OAuth App:
+  - **Homepage URL**: `https://jon1969edwards.github.io/`
+  - **Authorization callback URL**: `https://YOUR-OAUTH-PROVIDER.example.com/callback`
+- Deploy an OAuth provider (recommended: `netlify-cms-oauth-provider`) and note its public URL.
+- Update `public/admin/config.yml`:
+  - `base_url`: your provider URL (no trailing slash)
+  - `auth_endpoint`: `auth`
+
+### Using the CMS
+
+- Visit `https://jon1969edwards.github.io/admin/`
+- Log in with GitHub
+- Edit JSON content + upload images
+- Changes are committed to `master` (and trigger the Pages workflow)
+
 ## Blog (coming soon)
 
 Add Markdown files under `src/content/posts/` when post support is wired up. The `/blog` route shows a placeholder until then.
