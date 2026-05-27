@@ -10,7 +10,7 @@ export default function Hero() {
       <div className={styles.bg} aria-hidden />
       <div className={`container ${styles.grid}`}>
         <div className={styles.content}>
-          <div className={styles.intro}>
+          <div className={styles.copyCard}>
             <p className={styles.eyebrow}>
               {config.location} · {config.role}
             </p>
@@ -19,31 +19,28 @@ export default function Hero() {
               <span className={styles.headlineAccent}>who loves to tinker</span>
             </h1>
             <p className={styles.tagline}>{config.tagline}</p>
-          </div>
 
-          {/* Keeps “Programmer Found!” in the background image visible */}
-          <div className={styles.bubbleLane} aria-hidden />
+            <div className={styles.pitch}>
+              <p>{config.heroSubheadClient}</p>
+              <p>{config.heroSubheadEmployer}</p>
+            </div>
 
-          <ul className={styles.skills} aria-label="Skills">
-            {config.skills.map((skill) => (
-              <li key={skill}>
-                <span className="tag">{skill}</span>
-              </li>
-            ))}
-          </ul>
+            <ul className={styles.skills} aria-label="Skills">
+              {config.skills.map((skill) => (
+                <li key={skill}>
+                  <span className="tag">{skill}</span>
+                </li>
+              ))}
+            </ul>
 
-          <div className={styles.ctas}>
-            <a href="#work" className="btn btn-primary">
-              View work
-            </a>
-            <a href="#contact" className="btn btn-secondary">
-              Get in touch
-            </a>
-          </div>
-
-          <div className={styles.pitch}>
-            <p>{config.heroSubheadClient}</p>
-            <p>{config.heroSubheadEmployer}</p>
+            <div className={styles.ctas}>
+              <a href="#work" className="btn btn-primary">
+                View work
+              </a>
+              <a href="#contact" className="btn btn-secondary">
+                Get in touch
+              </a>
+            </div>
           </div>
         </div>
 
