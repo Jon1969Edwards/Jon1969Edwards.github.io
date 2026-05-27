@@ -57,7 +57,7 @@ export default function Work() {
                   <div className={styles.embedFallback}>
                     <p className={styles.embedTitle}>{client.title}</p>
                     <p className={styles.embedNote}>
-                      Video embeds from Google Drive are blocked on GitHub Pages.
+                      Short demo video — opens in a new tab.
                     </p>
                     <a
                       className="btn btn-primary"

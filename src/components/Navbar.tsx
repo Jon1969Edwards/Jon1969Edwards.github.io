@@ -6,17 +6,25 @@ import styles from "./Navbar.module.css";
 
 const config = site as SiteConfig;
 
-const navLinks = [
-  { href: "/#work", label: "Work" },
-  { href: "/#about", label: "About" },
-  { href: "/blog", label: "Blog", route: true },
-  { href: "/#contact", label: "Contact" },
+type NavItem =
+  | { label: string; section: string }
+  | { label: string; path: string };
+
+const navItems: NavItem[] = [
+  { label: "Work", section: "work" },
+  { label: "About", section: "about" },
+  { label: "Blog", path: "/blog" },
+  { label: "Contact", section: "contact" },
 ];
+
+function sectionHref(section: string, onHomePage: boolean) {
+  return onHomePage ? `#${section}` : `/#${section}`;
+}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  const onHomePage = location.pathname === "/";
 
   return (
     <header className={styles.header}>
@@ -41,24 +49,24 @@ export default function Navbar() {
           className={`${styles.nav} ${open ? styles.navOpen : ""}`}
           aria-label="Main"
         >
-          {navLinks.map((link) =>
-            link.route ? (
+          {navItems.map((item) =>
+            "path" in item ? (
               <Link
-                key={link.href}
-                to={link.href}
+                key={item.path}
+                to={item.path}
                 className={styles.link}
                 onClick={() => setOpen(false)}
               >
-                {link.label}
+                {item.label}
               </Link>
             ) : (
               <a
-                key={link.href}
-                href={isHome ? link.href.replace("/", "") : link.href}
+                key={item.section}
+                href={sectionHref(item.section, onHomePage)}
                 className={styles.link}
                 onClick={() => setOpen(false)}
               >
-                {link.label}
+                {item.label}
               </a>
             )
           )}

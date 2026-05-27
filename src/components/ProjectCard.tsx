@@ -7,10 +7,17 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, variant = "dark" }: ProjectCardProps) {
-  const card = (
-    <article className={`${styles.card} ${variant === "light" ? styles.cardLight : ""}`}>
+  const className = `${styles.card} ${variant === "light" ? styles.cardLight : ""}`;
+
+  const content = (
+    <>
       <div className={styles.imageWrap}>
-        <img src={project.image} alt="" className={styles.image} loading="lazy" />
+        <img
+          src={project.image}
+          alt={`Screenshot of ${project.title}`}
+          className={styles.image}
+          loading="lazy"
+        />
         <div className={styles.hoverOverlay}>
           <span className={styles.hoverIcon} aria-hidden>
             +
@@ -32,7 +39,7 @@ export default function ProjectCard({ project, variant = "dark" }: ProjectCardPr
           </div>
         </div>
       </div>
-    </article>
+    </>
   );
 
   if (project.url) {
@@ -41,12 +48,12 @@ export default function ProjectCard({ project, variant = "dark" }: ProjectCardPr
         href={project.url}
         target="_blank"
         rel="noopener noreferrer"
-        className={styles.link}
+        className={className}
       >
-        {card}
+        {content}
       </a>
     );
   }
 
-  return card;
+  return <div className={className}>{content}</div>;
 }
