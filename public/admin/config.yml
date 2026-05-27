@@ -2,12 +2,12 @@ backend:
   name: github
   repo: Jon1969Edwards/Jon1969Edwards.github.io
   branch: master
-
-# One-time setup required:
-# - Deploy an OAuth provider (e.g. netlify-cms-oauth-provider) and set these URLs.
-# - See README for step-by-step instructions.
-base_url: https://YOUR-OAUTH-PROVIDER.example.com
-auth_endpoint: auth
+  # Netlify OAuth (repo must be linked as a Netlify site — see README)
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  # REQUIRED: your Netlify site subdomain, e.g. jon-portfolio-cms.netlify.app
+  # (Site overview in Netlify — not the github.io URL)
+  site_domain: YOUR-NETLIFY-SITE.netlify.app
 
 media_folder: "public/img"
 public_folder: "/img"

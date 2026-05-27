@@ -42,17 +42,30 @@ In the GitHub repo, enable **Settings → Pages → Build and deployment → Sou
 
 This repo includes a browser-based editor at `/admin` powered by [Decap CMS](https://decapcms.org/). It commits changes directly to GitHub (no database, no custom backend for content).
 
-### One-time setup (GitHub auth)
+### One-time setup (Netlify + GitHub OAuth)
 
-Decap’s GitHub backend requires an OAuth “handshake” service. You can run it for free on a tiny host (Netlify/Vercel/Cloudflare) without moving your site off GitHub Pages.
+Your site stays on **GitHub Pages**. Netlify is only used for the GitHub login handshake (free).
 
-- Create a GitHub OAuth App:
-  - **Homepage URL**: `https://jon1969edwards.github.io/`
-  - **Authorization callback URL**: `https://YOUR-OAUTH-PROVIDER.example.com/callback`
-- Deploy an OAuth provider (recommended: `netlify-cms-oauth-provider`) and note its public URL.
-- Update `public/admin/config.yml`:
-  - `base_url`: your provider URL (no trailing slash)
-  - `auth_endpoint`: `auth`
+1. **Add this repo as a Netlify site**
+   - [Netlify](https://app.netlify.com) → Add new site → Import from Git → this repo → branch `master`
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+   - Deploy once (you can keep using GitHub Pages as the public URL)
+
+2. **Note your Netlify site URL** from Site overview, e.g. `https://something-random.netlify.app`
+
+3. **Create a GitHub OAuth App** ([Developer settings → OAuth Apps](https://github.com/settings/developers))
+   - **Homepage URL**: `https://jon1969edwards.github.io/`
+   - **Authorization callback URL**: `https://api.netlify.com/auth/done` (exactly this)
+   - Copy the **Client ID** and generate a **Client Secret**
+
+4. **Connect OAuth in Netlify**
+   - Site configuration → **Access & security** → **OAuth**
+   - Install provider → **GitHub** → paste Client ID and Client Secret → Save
+
+5. **Update `public/admin/config.yml`**
+   - Set `site_domain` to your Netlify subdomain only, e.g. `something-random.netlify.app` (no `https://`)
+   - Commit and push to `master` (or tell your agent the URL to update it for you)
 
 ### Using the CMS
 
