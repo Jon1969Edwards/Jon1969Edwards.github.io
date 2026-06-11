@@ -1,6 +1,12 @@
 /** Decap CMS GitHub OAuth — runs on jon-portfolio-cms.netlify.app */
 const SCOPES = "repo";
 
+/** Only these origins may receive OAuth tokens via postMessage. */
+const ALLOWED_ADMIN_ORIGINS = [
+  "https://jon-portfolio-cms.netlify.app",
+  "https://jon1969edwards.github.io",
+];
+
 function siteUrl() {
   return process.env.URL || "https://jon-portfolio-cms.netlify.app";
 }
@@ -53,9 +59,12 @@ function authRedirect(params) {
             goToGitHub();
           }
         });
-        try {
-          window.opener.postMessage("authorizing:github", "*");
-        } catch (e) {}
+        var allowedOrigins = ${JSON.stringify(ALLOWED_ADMIN_ORIGINS)};
+        for (var i = 0; i < allowedOrigins.length; i++) {
+          try {
+            window.opener.postMessage("authorizing:github", allowedOrigins[i]);
+          } catch (e) {}
+        }
         setTimeout(goToGitHub, 8000);
       })();
     </script>
@@ -108,11 +117,12 @@ async function authCallback(params) {
     <script>
       (function () {
         var msg = ${JSON.stringify(payload)};
-        var adminOrigin = "https://jon1969edwards.github.io";
+        var allowedOrigins = ${JSON.stringify(ALLOWED_ADMIN_ORIGINS)};
         function deliver() {
           if (!window.opener || window.opener.closed) return;
-          try { window.opener.postMessage(msg, "*"); } catch (e) {}
-          try { window.opener.postMessage(msg, adminOrigin); } catch (e) {}
+          for (var i = 0; i < allowedOrigins.length; i++) {
+            try { window.opener.postMessage(msg, allowedOrigins[i]); } catch (e) {}
+          }
         }
         deliver();
         var n = 0;
